@@ -2,7 +2,7 @@
 
 **Forge your images into any format with blazing speed**
 
-A high-performance command-line image converter and processor built with Rust. PixelForge transforms your images between multiple formats with support for batch processing, resizing, and quality control - all at incredible speeds.
+A high-performance command-line image converter and processor built with Rust. PixelForge transforms your images between multiple formats with support for batch processing, resizing, and quality control. All at incredible speeds.
 
 ## Features
 
@@ -19,7 +19,7 @@ A high-performance command-line image converter and processor built with Rust. P
 ### From Source
 ```bash
 git clone https://github.com/lazzerex/pixel-forge.git
-cd pixelforge
+cd pixel-forge
 cargo build --release
 ```
 
