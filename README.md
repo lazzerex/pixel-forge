@@ -13,7 +13,7 @@ A high-performance image converter and processor built with Rust. PixelForge tra
 - **Quality Control**: Fine-tune compression settings for optimal results
 - **Progress Tracking**: Beautiful progress bars for batch operations
 - **Cross-platform CLI**: Works seamlessly on Windows, macOS, and Linux
-- **Windows GUI**: User-friendly desktop application with drag-and-drop interface
+- **Windows GUI**: User-friendly desktop application with clean interface
 
 ## Installation
 
