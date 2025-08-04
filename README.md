@@ -2,7 +2,7 @@
 
 **Forge your images into any format with blazing speed**
 
-A high-performance image converter and processor built with C# and Rust. PixelForge transforms your images between multiple formats with support for batch processing, resizing, and quality control - all at incredible speeds. Available both as a command-line tool and Windows desktop application.
+A high-performance image converter and processor built with C# and Rust. PixelForge transforms your images between multiple formats with support for batch processing, resizing, and quality control, all at incredible speeds. Available both as a command-line tool and Windows desktop application.
 
 ## Screenshots
 
