@@ -2,7 +2,7 @@
 
 **Forge your images into any format with blazing speed**
 
-A high-performance command-line image converter and processor built with Rust. PixelForge transforms your images between multiple formats with support for batch processing, resizing, and quality control - all at incredible speeds.
+A high-performance image converter and processor built with Rust. PixelForge transforms your images between multiple formats with support for batch processing, resizing, and quality control - all at incredible speeds. Available both as a command-line tool and Windows desktop application.
 
 ## Features
 
@@ -12,30 +12,60 @@ A high-performance command-line image converter and processor built with Rust. P
 - **Smart Resizing**: Resize images while converting with high-quality algorithms  
 - **Quality Control**: Fine-tune compression settings for optimal results
 - **Progress Tracking**: Beautiful progress bars for batch operations
-- **Cross-platform**: Works seamlessly on Windows, macOS, and Linux
+- **Cross-platform CLI**: Works seamlessly on Windows, macOS, and Linux
+- **Windows GUI**: User-friendly desktop application with drag-and-drop interface
 
 ## Installation
 
-### From Source
+### Command Line Tool
+
+#### From Source
 ```bash
 git clone https://github.com/lazzerex/pixel-forge.git
-cd pixelforge
+cd pixelforge/rust-cli
 cargo build --release
 ```
 
 The binary will be available at `target/release/pxforge`.
 
-### Using Cargo
+#### Using Cargo
 ```bash
+cd rust-cli
 cargo install --path .
 ```
 
-### Pre-built Binaries
-Download the latest release from [GitHub Releases](https://github.com/lazzerex/pixel-forge/releases).
+### Windows Desktop Application
+
+If you don't want to use the CLI, I have also made a WinForms application that is more straight-forward and easier to use.
+
+#### Requirements
+- .NET Framework 4.0 or later
+- Windows 7 or later
+
+#### Installation Steps
+1. Clone this reposistory
+2. Use Cargo to build the Rust project first (you can refer to the code above for installing with Cargo)
+3. Build the WinForm application
+3. Move the binary file (pxforge.exe) to .\PixelForgeUI\bin\Debug 
+4. Open PixelForgeUI.sln and run the application
+
+#### Building from Source
+```bash
+# First build the Rust CLI
+cd rust-cli
+cargo build --release
+cp target/release/pxforge.exe ../windows-ui/
+
+# Then build the Windows application
+cd ../windows-ui
+dotnet build --configuration Release
+```
 
 ## Usage
 
-### Basic Usage
+### Command Line Interface
+
+#### Basic Usage
 ```bash
 # Convert single image
 pxforge -i input.jpg -o output.png -f png
@@ -47,7 +77,7 @@ pxforge -i photo.jpg -o photo.webp -f webp -q 90
 pxforge -i large.png -o small.jpg -f jpg -r 800x600
 ```
 
-### Batch Processing
+#### Batch Processing
 ```bash
 # Convert all images in a directory
 pxforge -i ./photos -o ./converted -f webp --batch
@@ -56,7 +86,7 @@ pxforge -i ./photos -o ./converted -f webp --batch
 pxforge -i ./originals -o ./thumbnails -f jpg -r 200x200 --batch
 ```
 
-### Command Line Options
+#### Command Line Options
 
 | Option | Short | Description | Default |
 |--------|-------|-------------|---------|
@@ -69,6 +99,26 @@ pxforge -i ./originals -o ./thumbnails -f jpg -r 200x200 --batch
 | `--strip-metadata` | | Strip metadata from images | `false` |
 | `--force` | | Overwrite existing files without asking | `false` |
 | `--verbose` | `-v` | Show detailed progress information | `false` |
+
+### Windows Desktop Application
+
+The Windows GUI provides an intuitive interface for all PixelForge features:
+
+#### Getting Started
+1. **Choose conversion mode**: Single file or batch folder processing
+2. **Select input**: Browse for your image file or folder
+3. **Pick format**: Choose your desired output format (PNG, JPEG, WebP, etc.)
+4. **Set output location**: Choose where to save converted images
+5. **Adjust settings**: Optional quality, resize, and metadata options
+6. **Convert**: Click the convert button and watch real-time progress
+
+#### Features
+- **Smart file dialogs**: Automatically shows correct file types based on selected format
+- **Real-time progress**: Live console output showing conversion progress
+- **Batch processing**: Convert entire folders with progress tracking
+- **Quality preview**: Adjust compression settings with live feedback
+- **Error handling**: Clear error messages and validation
+- **Intuitive workflow**: Logical step-by-step process guides users
 
 ## Examples
 
@@ -96,12 +146,32 @@ pxforge -i ./raw_photos -o ./processed -f jpg -q 85 --batch --verbose
 
 | Format | Extensions | Quality Control | Notes |
 |--------|------------|-----------------|-------|
-| JPEG | `.jpg`, `.jpeg` | ✅ | Lossy compression |
-| PNG | `.png` | ❌ | Lossless compression |
-| WebP | `.webp` | ✅ | Modern format, great compression |
-| GIF | `.gif` | ❌ | Animation support |
-| BMP | `.bmp` | ❌ | Uncompressed |
-| TIFF | `.tiff`, `.tif` | ❌ | High quality, large files |
+| JPEG | `.jpg`, `.jpeg` | Yes | Lossy compression |
+| PNG | `.png` | No | Lossless compression |
+| WebP | `.webp` | Yes | Modern format, great compression |
+| GIF | `.gif` | No | Animation support |
+| BMP | `.bmp` | No | Uncompressed |
+| TIFF | `.tiff`, `.tif` | No | High quality, large files |
+
+## Project Structure
+
+```
+pixelforge/
+├── rust-cli/              # Rust command-line application
+│   ├── src/
+│   │   ├── main.rs
+│   │   ├── cli.rs
+│   │   ├── converter.rs
+│   │   └── utils.rs
+│   └── Cargo.toml
+├── windows-ui/             # Windows Forms desktop application
+│   ├── PixelForgeUI/
+│   │   ├── Form1.cs
+│   │   ├── Program.cs
+│   │   └── PixelForgeUI.csproj
+│   └── PixelForgeUI.sln
+└── README.md
+```
 
 ## Performance
 
@@ -133,7 +203,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] **EXIF Handling**: Preserve or strip metadata with granular control
 - [ ] **Animation Support**: Enhanced GIF and WebP animation processing
 - [ ] **Presets**: Configuration files for common conversion workflows
-- [ ] **GUI Version**: Desktop application with drag-and-drop interface
+- [ ] **macOS/Linux GUI**: Desktop applications for other platforms
 - [ ] **Cloud Integration**: Direct upload/download from cloud storage
 - [ ] **Plugin System**: Extensible architecture for custom processors
 

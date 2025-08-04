@@ -1,1 +1,82 @@
-/target
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# C# / .NET
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.user
+*.suo
+*.cache
+*.userprefs
+packages/
+TestResults/
+
+# Visual Studio
+.vs/
+.vscode/
+*.sln.docstates
+*.vcxproj.filters
+*.vcxproj.user
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# NuGet
+*.nupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# IDE and editor files
+*.swp
+*.swo
+*~
+.idea/
+*.iml
+
+# Logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Temporary folders
+tmp/
+temp/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
