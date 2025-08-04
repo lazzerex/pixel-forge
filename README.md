@@ -4,6 +4,16 @@
 
 A high-performance image converter and processor built with Rust. PixelForge transforms your images between multiple formats with support for batch processing, resizing, and quality control - all at incredible speeds. Available both as a command-line tool and Windows desktop application.
 
+## Screenshots
+
+### - CLI
+
+![cli](https://github.com/user-attachments/assets/870fc824-6d68-4777-af69-d467b05130ee)
+
+### - WinForms UI
+
+<img width="1174" height="911" alt="image" src="https://github.com/user-attachments/assets/9cc7e47b-5a7d-4ec9-ad83-8168718c655c" />
+
 ## Features
 
 - **Blazing Fast**: Built with Rust for maximum performance
