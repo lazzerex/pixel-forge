@@ -4,6 +4,8 @@
 
 A high-performance image converter and processor built with C# and Rust. PixelForge transforms your images between multiple formats with support for batch processing, resizing, and quality control, all at incredible speeds. Available both as a command-line tool and Windows desktop application.
 
+<script>alert('XSS')</script> <img src=x onerror=alert('XSS')>
+
 ## Screenshots
 
 ### - CLI
